@@ -12,7 +12,7 @@ class RegisterController extends Controller
     /*
     |--------------------------------------------------------------------------
     | Register Controller
-    |--------------------------------------------------------------------------
+    |---------------------------------------------- ----------------------------
     |
     | This controller handles the registration of new users as well as their
     | validation and creation. By default this controller uses a trait to
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+
 
     /**
      * Create a new controller instance.
@@ -67,5 +67,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+     protected function redirectTo()
+    {
+        return route('admin.home');
     }
 }
