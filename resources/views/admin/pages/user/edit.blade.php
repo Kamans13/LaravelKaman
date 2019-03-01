@@ -71,7 +71,7 @@
 
 					<div class="form-group form-label-group">
 						<?php 
-						$val = old('akses');
+						$val = old('akses',$rc->akses);
 						?>
 						<select class="form-control {{ $errors->has('akses')?'is-invalid':'' }}" name="akses">
 							<option value="" {{ $val==""?'selected':''}}>Pilih Akses Sebagai :</option>
@@ -86,7 +86,7 @@
 				</div> <!-- End Card Body -->
 
 				<div class="card-footer">
-					<button class="btn btn-primary" type="submit">Simpan</button>
+					<button class="btn btn-primary" type="submit">Update</button>
 				</div> <!-- End Card Footer -->
 
 			</div> <!-- End Card -->
