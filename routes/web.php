@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware'=>['auth']], function(){
-	Route::prefix('admin')->group(function(){
+Route::group(['prefix'=>'admin','middleware'=>['auth']], function(){
+	
 		Route::get('/', function(){
 			return view('admin.pages.dashboard');
 		})->name('admin.home');
@@ -38,7 +38,13 @@ Route::group(['middleware'=>['auth']], function(){
 			Route::get('/setting','UserSettingController@form')->name('admin.user.setting');
 			Route::post('/setting', 'UserSettingController@update');
 		});
+
+	// Kategori
+
+	Route::group(['prefix'=>'Kategori','middleware'=>'akses.admin'], function(){
+		Route::get('/','KategoriController@daftar')->name('admin.kategori');
 	});
+
 });
 
 
